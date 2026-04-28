@@ -1,0 +1,91 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #f1f5f9 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+
+h1 {
+    text-align: center;
+    color: #16a34a;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    font-weight: 700;
+}
+
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 10px;
+}
+
+
+.card {
+    background: #fff;
+    padding: 24px 20px 20px 20px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(34, 197, 94, 0.08), 0 1.5px 4px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 32px rgba(34, 197, 94, 0.16), 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+input,
+button {
+    padding: 12px;
+    margin: 7px 0;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 2px #bbf7d0;
+}
+
+
+button {
+    background: linear-gradient(90deg, #22c55e 60%, #16a34a 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+
+button:hover {
+    background: linear-gradient(90deg, #16a34a 60%, #22c55e 100%);
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.16);
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+li {
+    padding: 10px 8px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

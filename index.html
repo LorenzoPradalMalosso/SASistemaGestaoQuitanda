@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Quitanda</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quitanda MVC</h1>
+
+      <!-- Cadastro de Produto -->
+      <div class="card">
+        <h2>Cadastrar Produto</h2>
+
+        <form id="formProduto">
+          <input type="text" id="nome" placeholder="Nome do Produto" required />
+          <input type="text" id="categoria" placeholder="Categoria" required />
+          <input type="number" id="preco" placeholder="Preço" required />
+          <input
+            type="number"
+            id="quantidade"
+            placeholder="Quantidade"
+            required
+          />
+
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+
+      <!-- Venda -->
+      <div class="card">
+        <h2>Realizar Venda</h2>
+
+        <input type="text" id="vendaNome" placeholder="Nome do Produto" />
+        <input type="number" id="vendaQuantidade" placeholder="Quantidade" />
+
+        <button id="btnVenda">Vender</button>
+      </div>
+
+      <!-- Estoque -->
+      <div class="card">
+        <h2>Estoque</h2>
+
+        <ul id="estoque"></ul>
+      </div>
+
+      <!-- Movimentações -->
+      <div class="card">
+        <h2>Movimentações</h2>
+        <ul id="movimentacoes"></ul>
+      </div>
+
+      <!-- Atualizar Produto -->
+      <div class="card">
+        <h2>Atualizar Produto Existente</h2>
+        <form id="formAtualizar">
+          <input type="text" id="atualizaNome" placeholder="Nome do Produto" required />
+          <input type="text" id="atualizaCategoria" placeholder="Nova Categoria (opcional)" />
+          <input type="number" id="atualizaPreco" placeholder="Novo Preço (opcional)" />
+          <input type="number" id="atualizaQuantidade" placeholder="Nova Quantidade (opcional)" />
+          <button type="submit">Atualizar</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="js/app.js"></script>
+</html>
