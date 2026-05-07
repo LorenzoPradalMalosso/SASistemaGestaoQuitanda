@@ -1,18 +1,25 @@
 export default class QuitandaView {
   bindAddProduto(handler) {
-    document.getElementById("formProduto").addEventListener("submit", (e) => {
+    const form = document.getElementById("formProduto");
+    const nomeInput = document.getElementById("nome");
+    const categoriaInput = document.getElementById("categoria");
+    const precoInput = document.getElementById("preco");
+    const quantidadeInput = document.getElementById("quantidade");
+
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const produto = {
         id: Date.now(),
-        nome: document.getElementById("nome").value,
-        categoria: document.getElementById("categoria").value,
-        preco: parseFloat(document.getElementById("preco").value),
-        quantidade: parseInt(document.getElementById("quantidade").value),
+        nome: nomeInput.value,
+        categoria: categoriaInput.value,
+        preco: parseFloat(precoInput.value),
+        quantidade: parseInt(quantidadeInput.value, 10),
       };
 
-      handler(produto);
-      formProduto.reset();
+      if (handler(produto)) {
+        form.reset();
+      }
     });
   }
 
@@ -28,15 +35,18 @@ export default class QuitandaView {
   }
 
   bindVenda(handler) {
-    document.getElementById("btnVenda").addEventListener("click", () => {
-      const nome = document.getElementById("vendaNome").value;
-      const quantidade = parseInt(
-        document.getElementById("vendaQuantidade").value,
-      );
+    const nomeInput = document.getElementById("vendaNome");
+    const quantidadeInput = document.getElementById("vendaQuantidade");
+    const btnVenda = document.getElementById("btnVenda");
 
-      handler(nome, quantidade);
-      vendaNome.value = "";
-      vendaQuantidade.value = "";
+    btnVenda.addEventListener("click", () => {
+      const nome = nomeInput.value;
+      const quantidade = parseInt(quantidadeInput.value, 10);
+
+      if (handler(nome, quantidade)) {
+        nomeInput.value = "";
+        quantidadeInput.value = "";
+      }
     });
   }
 
@@ -52,20 +62,29 @@ export default class QuitandaView {
 
   // Adiciona o bind para atualização de produtos
   bindAtualizarProduto(handler) {
-    document.getElementById("formAtualizar").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const nome = document.getElementById("atualizaNome").value;
-      const categoria = document.getElementById("atualizaCategoria").value;
-      const preco = document.getElementById("atualizaPreco").value;
-      const quantidade = document.getElementById("atualizaQuantidade").value;
+    const form = document.getElementById("formAtualizar");
+    const nomeInput = document.getElementById("atualizaNome");
+    const categoriaInput = document.getElementById("atualizaCategoria");
+    const precoInput = document.getElementById("atualizaPreco");
+    const quantidadeInput = document.getElementById("atualizaQuantidade");
 
-      // Monta objeto apenas com campos preenchidos
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nome = nomeInput.value;
       const dados = {};
-      if (categoria) dados.categoria = categoria;
-      if (preco) dados.preco = parseFloat(preco);
-      if (quantidade) dados.quantidade = parseInt(quantidade);
-      handler(nome, dados);
-      formAtualizar.reset();
+
+      if (categoriaInput.value) dados.categoria = categoriaInput.value;
+      if (precoInput.value) dados.preco = parseFloat(precoInput.value);
+      if (quantidadeInput.value) dados.quantidade = parseInt(quantidadeInput.value, 10);
+
+      if (!Object.keys(dados).length) {
+        alert("Preencha pelo menos um campo para atualizar");
+        return;
+      }
+
+      if (handler(nome, dados)) {
+        form.reset();
+      }
     });
   }
 }

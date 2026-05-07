@@ -22,8 +22,10 @@ export default class QuitandaController {
       this.model.addProduto(dados);
       this.view.renderEstoque(this.model.listarProdutos());
       this.view.renderMovimentacoes(this.model.movimentacoes);
+      return true;
     } catch (e) {
       alert(e.message);
+      return false;
     }
   }
 
@@ -32,8 +34,10 @@ export default class QuitandaController {
       this.model.venderProduto(nome, quantidade);
       this.view.renderEstoque(this.model.listarProdutos());
       this.view.renderMovimentacoes(this.model.movimentacoes);
+      return true;
     } catch (e) {
       alert(e.message);
+      return false;
     }
   }
 
@@ -44,8 +48,10 @@ export default class QuitandaController {
       this.view.renderEstoque(this.model.listarProdutos());
       this.view.renderMovimentacoes(this.model.movimentacoes);
       alert("Produto atualizado com sucesso!");
+      return true;
     } catch (e) {
       alert(e.message);
+      return false;
     }
   }
 }
